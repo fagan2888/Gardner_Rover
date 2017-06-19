@@ -62,9 +62,9 @@ Steps required list:
 
 Figure A
  
-
+[image4]: ./misc/figurea.png
 Figure B
-
+[image5]: ./misc/figureb.png
 
 Autonomous Navigation and Mapping
 1. Fill in the perception_step() (at the bottom of the perception.py script) and decision_step() (in decision.py) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
@@ -74,7 +74,7 @@ The decision.py file with scripting functions to decide what the rover can do at
 Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines! Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by drive_rover.py) in your writeup when you submit the project so your reviewer can reproduce your results.
 The resolution for my simulated environment was 640x480, with fastest graphic quality. I increased the memory (Ram) of my machine to 8GB to stop so the issue with the freezes during the simulation runs.  Most of the decision process by decision.py as explained above was used in the process by the rover to run autonomously in the section above. Items that worked well were finally getting the right graphics output set (lots of trial and errors) along with cleaning up the code. The program did a decent job of maintain fidelity of over 80% and maps over 80% of the map given enough time. It's also able to pick most, if not all, of the rocks. The FPS is around 30.
 
-
+[image6]: ./misc/figurec.png
 
 ![alt text][image3]
 
