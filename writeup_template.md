@@ -50,8 +50,22 @@ And another!
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
 
+In order to detect the obstacles, navigable areas, and the rocks, a function was created to recognize the difference in colors of the various objects in the world.  The first step was to ensure that the Import CV2 was added as a necessary package. We use the RGB color space to detect difference in colors. For obstacles, an inverse background was added from ground color threshold and seems to work very nicely. For the rock sample detection, a threshold was applied between the lower range of (100, 100, 20) and the upper range (255, 255, 30). 
+
+
 
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
+The process_image() function had a basic structure with 6 required coding steps to accomplish the process of reading the incoming image. The image would then be identified in terms of navigable terrain, obstacle, or a rock sample. The processed image coming in (figure A top left below) would be change to RGB values through a perceptive transformation (warped image). The warped image would be viewed as filters in terms of transformation. Then that process would be giving us colors to determine what was navigable, obstacles or samples to pick up (top right figure A below). While we are processing the incoming images, part of the data will be used to plot what the rover sees on the left side top in basis RGB colors and on the bottom left, will plot what has been mapped and the location of the rock samples found.  The rover centric data containing the coordinates be covered to world coordinates (See figure B below bottom left, circled in blue, with differing light colors and the brown area as a rock sample). during the conversion.  By using the simulator, you can record in training mode and use the notebook to analyze each image recorded and create a short video.
+
+Steps required list: 
+1.	Define source and destination points for perspective transform
+2.	Apply perspective transform
+3.	Apply color threshold to identify navigable terrain/obstacles/rock samples
+4.	Convert thresholded image pixel values to rover-centric coords
+5.	Convert rover-centric pixel values to world coords
+6.	Update worldmap (to be displayed on right side of screen)
+
+Figure A
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
 
