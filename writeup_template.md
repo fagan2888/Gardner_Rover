@@ -26,8 +26,8 @@
 [image2]: ./calibration_images/example_grid1.jpg
 [image3]: ./calibration_images/example_rock1.jpg
 [image4]: ./misc/capturea.jpg
-[image5]: ./misc/captureb.png
-[image6]: ./misc/capturec.png
+[image5]: ./misc/captureb.jpg
+[image6]: ./misc/capturec.jpg
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -64,9 +64,13 @@ Steps required list:
 6.	Update worldmap (to be displayed on right side of screen)
 
 Figure A
+
 ![alt text][image4] 
+
 Figure B
+
 ![alt text][image5]
+
 Autonomous Navigation and Mapping
 1. Fill in the perception_step() (at the bottom of the perception.py script) and decision_step() (in decision.py) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
 The perception.py file has a perception_step() function that following the same logic as we saw in the Python Jupyter Notebook simulated. Minor adaption was necessary to make the code run in the new simulation environment from the notebook. Instead of reading as data (class) from the (data= Databucket()) in the notebook, the function interacts with the Rover (class) (Rover = RoverState()). In so doing and in trying to increase the fidelity, I added a margin of 2 in the roll and pitch (angles below 2 or over 358). If the rover is rolling along at a good pace the data will not be mapped stopping the latency in screen updates and this is allowed the rover to maintain a fidelity of almost 90%. This basic test or adaptation is translated in the scope and direction of the rover as seen as a decision in which direction to go (decision.py). 
@@ -76,7 +80,5 @@ Note: running the simulator with different choices of resolution and graphics qu
 The resolution for my simulated environment was 640x480, with fastest graphic quality. I increased the memory (Ram) of my machine to 8GB to stop so the issue with the freezes during the simulation runs.  Most of the decision process by decision.py as explained above was used in the process by the rover to run autonomously in the section above. Items that worked well were finally getting the right graphics output set (lots of trial and errors) along with cleaning up the code. The program did a decent job of maintain fidelity of over 80% and maps over 80% of the map given enough time. It's also able to pick most, if not all, of the rocks. The FPS is around 30.
 
 ![alt text][image6]
-
-![alt text][image3]
 
 
