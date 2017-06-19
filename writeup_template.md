@@ -62,7 +62,7 @@ Steps required list:
 
 Figure A
  
-[image4]: ./misc/capturea.jpg
+[image4]:  ./Gardner_Rover/misc/capturea.jpg
 Figure B
 [image5]: ./misc/captureb.png
 
