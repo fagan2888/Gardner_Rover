@@ -48,13 +48,8 @@ And another!
 ![alt text][image2]
 ### Autonomous Navigation and Mapping
 
-#### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
+1. Populate the process_image() function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap. Run process_image() on your test data using the moviepy functions provided to create video output of your result.
 
-In order to detect the obstacles, navigable areas, and the rocks, a function was created to recognize the difference in colors of the various objects in the world.  The first step was to ensure that the Import CV2 was added as a necessary package. We use the RGB color space to detect difference in colors. For obstacles, an inverse background was added from ground color threshold and seems to work very nicely. For the rock sample detection, a threshold was applied between the lower range of (100, 100, 20) and the upper range (255, 255, 30). 
-
-
-
-#### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
 The process_image() function had a basic structure with 6 required coding steps to accomplish the process of reading the incoming image. The image would then be identified in terms of navigable terrain, obstacle, or a rock sample. The processed image coming in (figure A top left below) would be change to RGB values through a perceptive transformation (warped image). The warped image would be viewed as filters in terms of transformation. Then that process would be giving us colors to determine what was navigable, obstacles or samples to pick up (top right figure A below). While we are processing the incoming images, part of the data will be used to plot what the rover sees on the left side top in basis RGB colors and on the bottom left, will plot what has been mapped and the location of the rock samples found.  The rover centric data containing the coordinates be covered to world coordinates (See figure B below bottom left, circled in blue, with differing light colors and the brown area as a rock sample). during the conversion.  By using the simulator, you can record in training mode and use the notebook to analyze each image recorded and create a short video.
 
 Steps required list: 
@@ -66,10 +61,18 @@ Steps required list:
 6.	Update worldmap (to be displayed on right side of screen)
 
 Figure A
+ 
 
-**Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
+Figure B
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+
+Autonomous Navigation and Mapping
+1. Fill in the perception_step() (at the bottom of the perception.py script) and decision_step() (in decision.py) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
+The perception.py file has a perception_step() function that following the same logic as we saw in the Python Jupyter Notebook simulated. Minor adaption was necessary to make the code run in the new simulation environment from the notebook. Instead of reading as data (class) from the (data= Databucket()) in the notebook, the function interacts with the Rover (class) (Rover = RoverState()). In so doing and in trying to increase the fidelity, I added a margin of 2 in the roll and pitch (angles below 2 or over 358). If the rover is rolling along at a good pace the data will not be mapped stopping the latency in screen updates and this is allowed the rover to maintain a fidelity of almost 90%. This basic test or adaptation is translated in the scope and direction of the rover as seen as a decision in which direction to go (decision.py). 
+The decision.py file with scripting functions to decide what the rover can do at this instant. That decision flows for a decision tree similar to the if, then statements in other languages, but as if’s and Else if’s.  The decision by the code will allow the rover to move forward if no obstacles exist, stop, reverse or change directions.  Each decision was based-on velocity (vel) and has the rover change positions. If the rover was stopped then a process started that allowed the rove to try and free itself for the obstacle or wall it bumped into. The decision tree allowed the Rover to map over 80% with high fidelity.
+2. Launching in autonomous mode your rover can navigate and map autonomously.
+Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines! Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by drive_rover.py) in your writeup when you submit the project so your reviewer can reproduce your results.
+The resolution for my simulated environment was 640x480, with fastest graphic quality. I increased the memory (Ram) of my machine to 8GB to stop so the issue with the freezes during the simulation runs.  Most of the decision process by decision.py as explained above was used in the process by the rover to run autonomously in the section above. Items that worked well were finally getting the right graphics output set (lots of trial and errors) along with cleaning up the code. The program did a decent job of maintain fidelity of over 80% and maps over 80% of the map given enough time. It's also able to pick most, if not all, of the rocks. The FPS is around 30.
 
 
 
