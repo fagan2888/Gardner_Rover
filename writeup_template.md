@@ -28,7 +28,7 @@
 [image4]: ./misc/capturea.jpg
 [image5]: ./misc/captureb.jpg
 [image6]: ./misc/capturec.jpg
-[image7]: ./misc/final.jpg
+[image7]: ./misc/Final.jpg
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -83,9 +83,11 @@ The decision.py file with scripting functions is to decide what the rover can do
 
 Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines! Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by drive_rover.py) in your writeup when you submit the project so your reviewer can reproduce your results.
 
-The project was ran with variuos settings for both resoluiton and screen graphics rate - as seen in Figure C. The resolution for my simulated environment preformed best at 640x480, with fastest graphic quality. I increased the memory (Ram) of my machine to 8GB to stop so the issue with the freezes during the simulation runs.  Most of the decision process by decision.py as explained above was used in the process by the rover to run autonomously in the section above. Items that worked well were finally getting the right graphics output set (lots of trial and errors) along with cleaning up the code. The program did a decent job of maintain fidelity of over 80% and maps over 80% of the map given enough time. It's also able to pick most, if not all, of the rocks. The FPS is around 16.
+The project was ran with variuos settings for both resoluiton and screen graphics rate - as seen in Figure C. The resolution for my simulated environment preformed best at 640x480, with fastest graphic quality. I increased the memory (Ram) of my machine to 8GB to stop so the issue with the freezes during the simulation runs.  Most of the decision process by decision.py as explained above was used in the process by the rover to run autonomously in the section above. Items that worked well were finally getting the right graphics output set (lots of trial and errors) along with cleaning up the code. The program did a decent job of maintain fidelity of over 60% and maps over 50% of the map given enough time. It's also able to pick most, if not all, of the rocks. The FPS is around 6.
 
 ##                  Figure C
 ![alt text][image6]
 ##                  Figure D
+
 ![alt text][image7]
+
