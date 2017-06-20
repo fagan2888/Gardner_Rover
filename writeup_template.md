@@ -28,7 +28,7 @@
 [image4]: ./misc/capturea.jpg
 [image5]: ./misc/captureb.jpg
 [image6]: ./misc/capturec.jpg
-[image6]: ./misc/final.jpg
+[image7]: ./misc/final.jpg
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
