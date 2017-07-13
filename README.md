@@ -16,7 +16,7 @@ You'll need Python 3 and Jupyter Notebooks installed to do this project.  The be
 
 Here is a great link for learning more about [Anaconda and Jupyter Notebooks](https://classroom.udacity.com/courses/ud1111)
 
-####Note: You will be running the `drive_rover.py` in a seperate terminal window. To do so, run your Active RoboND envirnoment before running the Python `drive_rover.py` file. 
+####Note: You will be running the `drive_rover.py` in a seperate terminal window. To do so, run your Activate RoboND envirnoment before running the Python `drive_rover.py` file. 
 
 ## Recording Data
 I've saved some test data for you in the folder called `test_dataset`.  In that folder you'll find a csv file with the output data for steering, throttle position etc. and the pathnames to the images recorded in each run.  I've also saved a few images in the folder called `calibration_images` to do some of the initial calibration steps with.  
